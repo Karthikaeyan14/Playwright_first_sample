@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 
 
-test.only("first test",async({page})=>{
+test("first test",async({page})=>{
     await page.goto('https://www.saucedemo.com');
     await expect(page).toHaveTitle("Swag Labs");
     //await page.locator("#user-name").fill("standard_user");

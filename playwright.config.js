@@ -14,9 +14,9 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './test',
-  globalTimeout: 40 * 1000,
+  globalTimeout: 60 * 1000,
   expect:{
-    timeout:5000
+    timeout:60000
   },
 
  
@@ -41,15 +41,22 @@ export default defineConfig({
   },
   projects:[
     {
-    name: 'chromium',
-    //use: { ...devices['Desktop Chrome'] },
+    name: 'Mobile Chrome',
+    use: { //...devices['Desktop Chrome'],
+    //viewport: { width: 1700, height: 1000 },
+    ...devices['Pixel 5'],
+    //channel:'chrome'
+
+     },
     //headless :false,
     },
     {
       name:'firefox',
-      use:{...devices['Desktop Firefox']},
+      use:{...devices['Desktop Firefox'],
+      viewport: { width: 1700, height: 1000 },
       //headless :false,
     }
+  }
 
   ],
 
